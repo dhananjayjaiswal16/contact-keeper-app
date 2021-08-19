@@ -8,6 +8,7 @@ const User = require('../models/User');
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 //route         POST api/users
 //description   Register user
 //access        Public
@@ -28,8 +29,9 @@ router.post('/',
         try {
             var user = await User.findOne({ email });
 
+
             if (user) {
-                return res.json({ msg: "User already exists" });
+                return res.json({ msg: 'User already exists' });
             }
 
             user = new User({
@@ -53,7 +55,9 @@ router.post('/',
             jwt.sign(payload, config.get('jwtSecret'), {
 
             }, (err, token) => {
-                if (err) throw err;
+                if (err) {
+                    throw err;
+                }
                 res.json({ token });
             });
 
