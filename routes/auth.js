@@ -11,7 +11,7 @@ const config = require('config');
 const auth = require('../middleware/auth');
 
 
-//route         GET api/users
+//route         GET api/auth
 //description   Get logged in user
 //access        Pvt
 router.get('/', auth, async (req, res) => {
@@ -25,7 +25,7 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-//route         POST api/users
+//route         POST api/auth
 //description   Auth user and get token
 //access        Public 
 router.post('/',
@@ -45,7 +45,7 @@ router.post('/',
             var user = await User.findOne({ email });
 
             if (!user) {
-                return res.json({ msg: 'User not found' });
+                return res.json({ msg: "User not found" });
             }
 
             const isMatch = await bcrypt.compare(password, user.password);

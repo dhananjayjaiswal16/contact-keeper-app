@@ -14,6 +14,6 @@ module.exports = async function (req, res, next) {
 
         next();
     } catch (error) {
-        res.json({ msg: "Invalid Token " })
+        res.json({ msg: "Invalid Token" })
     }
 }
