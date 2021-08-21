@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/contact/contactContext'
@@ -8,8 +8,13 @@ const Navbar = ({ title, icon }) => {
     const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
 
-    const { isAuthenticated, logout } = authContext;
+    const { isAuthenticated, logout, loadUser } = authContext;
     const { clearContacts } = contactContext;
+
+    useEffect(() => {
+        loadUser();
+        // eslint-disable-next-line
+    }, []);
 
     const onLogout = () => {
         logout();
@@ -19,7 +24,7 @@ const Navbar = ({ title, icon }) => {
     const authLinks = (
         <Fragment>
             <li>
-                <a onClick={onLogout}>
+                <a href="#" onClick={onLogout}>
                     <i className="fas fa-sign-out-alt"></i> <span className="hide-sm">Logout</span>
                 </a>
             </li>
