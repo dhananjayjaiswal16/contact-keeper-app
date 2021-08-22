@@ -76,12 +76,13 @@ const AuthState = props => {
                     payload: res.data.msg
                 });
 
-                loadUser();
+
             } else {
                 dispatch({
                     type: REGISTER_SUCCESS,
                     payload: res.data
                 });
+                loadUser();
             }
 
 
@@ -113,12 +114,13 @@ const AuthState = props => {
                     payload: res.data.msg
                 });
 
-                loadUser();
+
             } else {
                 dispatch({
                     type: LOGIN_SUCCESS,
                     payload: res.data
                 });
+                loadUser();
             }
 
         } catch (err) {
