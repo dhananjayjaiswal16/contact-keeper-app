@@ -18,7 +18,6 @@ const Register = (props) => {
 
 
         if (error === "User already exists") {
-            console.log("Error inside if = " + error);
             setAlert(error, 'danger')
             clearError();
         }

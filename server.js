@@ -11,11 +11,6 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 
-app.get('/', (req, res) => {
-    res.send('Doge to the moon');
-})
-
-
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contacts', require('./routes/contacts'));
