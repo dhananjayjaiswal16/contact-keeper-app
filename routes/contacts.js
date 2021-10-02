@@ -87,7 +87,7 @@ router.put('/:id', auth, async (req, res) => {
 
 
 //route         DELETE api/contact/:id
-//description   Deleter contact
+//description   Delete contact
 //access        Pvt
 router.delete('/:id', auth, async (req, res) => {
     try {

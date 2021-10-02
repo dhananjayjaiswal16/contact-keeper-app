@@ -41,6 +41,7 @@ const AuthState = props => {
                 dispatch({
                     type: AUTH_ERROR
                 })
+
             } else {
                 dispatch({
                     type: USER_LOADED,
@@ -114,13 +115,13 @@ const AuthState = props => {
                     payload: res.data.msg
                 });
 
-
+                loadUser();
             } else {
                 dispatch({
                     type: LOGIN_SUCCESS,
                     payload: res.data
                 });
-                loadUser();
+
             }
 
         } catch (err) {
